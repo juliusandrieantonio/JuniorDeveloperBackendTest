@@ -7,7 +7,7 @@ public class Main {
         // Class utility to get the data from the API
         // first argument is the number of data you want to get
         // second argument is the type of data you want it to get sample (csv, json, console)
-        DataGetter dataGetter = new DataGetter(10, "test");
+        DataGetter dataGetter = new DataGetter(1, "csv");
         dataGetter.getData();
     }
 }

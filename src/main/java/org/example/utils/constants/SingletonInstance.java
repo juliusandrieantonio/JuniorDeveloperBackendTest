@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.example.utils.constants;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

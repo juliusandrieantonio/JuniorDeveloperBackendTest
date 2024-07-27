@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import org.example.models.RandomDataModel;
-import org.example.utils.SingletonInstance;
+import org.example.utils.models.RandomDataModel;
+import org.example.utils.constants.SingletonInstance;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +41,11 @@ public class DataGetter {
             case "console":
                 while (i < num) {
                     HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+                    // error handling
+                    if (response.body().equals("Too many requests, please try again later.")) {
+                        System.out.println("Connection Time out!");
+                        return;
+                    }
                     RandomDataModel model = objectMapper.readValue(response.body(), RandomDataModel.class);
                     System.out.println(model);
                     i++;
@@ -50,6 +55,11 @@ public class DataGetter {
             case "json":
                 while (i < num) {
                     HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+                    // error handling
+                    if (response.body().equals("Too many requests, please try again later.")) {
+                        System.out.println("Connection Time out!");
+                        return;
+                    }
                     RandomDataModel model = objectMapper.readValue(response.body(), RandomDataModel.class);
 
                     String fileName = "test.json";
@@ -70,6 +80,11 @@ public class DataGetter {
             case "csv":
                 while (i < num) {
                     HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+                    // error handling
+                    if (response.body().equals("Too many requests, please try again later.")) {
+                        System.out.println("Connection Time out!");
+                        return;
+                    }
                     RandomDataModel model = objectMapper.readValue(response.body(), RandomDataModel.class);
                     CsvSchema.Builder csvSchemaBuilder = CsvSchema.builder();
 
