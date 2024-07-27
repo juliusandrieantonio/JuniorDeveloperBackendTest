@@ -1,12 +1,7 @@
 package org.example.utils;
 
-//import retrofit2.Retrofit;
-//import retrofit2.converter.gson.GsonConverterFactory;
-
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
 
 // since creating object mapper is heavy task. I created a singleton class to create the object mapper once and use it across the program
 public class SingletonInstance {

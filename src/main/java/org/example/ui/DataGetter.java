@@ -30,6 +30,7 @@ public class DataGetter {
     }
 
     // class to get the data
+    // I choose to use jackson to convert from json to object, write object to json file, and write object to csv file because of it's simplicity
     public void getData() throws IOException, InterruptedException {
         int i = 0;
         HttpClient client = HttpClient.newHttpClient();
